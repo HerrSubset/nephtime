@@ -1,5 +1,5 @@
 // set the date we're counting down to
-var target_date = new Date("Dec 4, 2015 16:00").getTime();
+var target_date = new Date("Dec 18, 2015 16:00").getTime();
 
 // variables for time units
 var days, hours, minutes, seconds;
@@ -17,15 +17,17 @@ setInterval(function () {
     // do some time calculations
     days = parseInt(seconds_left / 86400);
     seconds_left = seconds_left % 86400;
+    document.getElementById("days").innerHTML = days + " days";
 
     hours = parseInt(seconds_left / 3600);
     seconds_left = seconds_left % 3600;
+    document.getElementById("hours").innerHTML = hours + " hours";
 
     minutes = parseInt(seconds_left / 60);
-    seconds = parseInt(seconds_left % 60);
+    document.getElementById("minutes").innerHTML = minutes + " minutes";
 
-    // format countdown string + set tag value
-    countdown.innerHTML = days + " days\n" + hours + " hours\n"
-    + minutes + " minutes\n" + seconds + " seconds\nuntil Nephtime";
+    seconds = parseInt(seconds_left % 60);
+    document.getElementById("seconds").innerHTML = seconds + " seconds";
+
 
 }, 1000);

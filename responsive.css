@@ -1,0 +1,12 @@
+@media screen and (min-width: 960px) {
+  body{
+    padding-top: 20px;
+  }
+  h1 {
+    font-size: 3em;
+  }
+
+  .countdowntext{
+    font-size: 2.5em;
+  }
+}

@@ -4,6 +4,14 @@ body {
   font-family: "Raleway";
 }
 
+h1 {
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-align: center;
+  color: #555;
+  font-size: 4.5em;
+}
+
 .countdowntext {
   color: #666;
   font-size: 4em;

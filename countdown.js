@@ -17,17 +17,27 @@ setInterval(function () {
     // do some time calculations
     days = parseInt(seconds_left / 86400);
     seconds_left = seconds_left % 86400;
-    document.getElementById("days").innerHTML = days + " days";
+
+    printTime("days", days);
 
     hours = parseInt(seconds_left / 3600);
     seconds_left = seconds_left % 3600;
-    document.getElementById("hours").innerHTML = hours + " hours";
+    printTime("hours", hours);
 
     minutes = parseInt(seconds_left / 60);
-    document.getElementById("minutes").innerHTML = minutes + " minutes";
+    printTime("minutes", minutes);
 
     seconds = parseInt(seconds_left % 60);
-    document.getElementById("seconds").innerHTML = seconds + " seconds";
-
+    printTime("seconds", seconds);
 
 }, 1000);
+
+function printTime(name, value){
+  var element = document.getElementById(name);
+
+  if (value === 1){
+    name = name.substring(0, name.length - 1);
+  }
+
+  element.innerHTML = value + " " + name;
+}

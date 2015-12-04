@@ -1,0 +1,13 @@
+body {
+  background-color: #dfdfdf;
+}
+
+.wrapper {
+  text-align: center;
+  max-width: 960px;
+}
+
+span {
+  color: #666;
+  font-size: 2.5em;
+}

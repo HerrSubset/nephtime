@@ -1,36 +1,54 @@
-// set the date we're counting down to
-var target_date = new Date("Dec 19, 2015 21:45").getTime();
+//set the dates we'll use and store them as unix timestamps
+var startDate = new Date("Dec 19, 2015 21:45").getTime();
+var endDate = new Date("Dec 23, 2015 17:25").getTime();
 
-// variables for time units
-var days, hours, minutes, seconds;
-
-// get tag element
-var countdown = document.getElementById("timer");
-
-// update the tag with id "countdown" every 1 second
+// update every second
 setInterval(function () {
-
-    // find the amount of "seconds" between now and target
+    //get current date as unix timestamp
     var current_date = new Date().getTime();
-    var seconds_left = (target_date - current_date) / 1000;
 
-    // do some time calculations
-    days = parseInt(seconds_left / 86400);
-    seconds_left = seconds_left % 86400;
-
-    printTime("days", days);
-
-    hours = parseInt(seconds_left / 3600);
-    seconds_left = seconds_left % 3600;
-    printTime("hours", hours);
-
-    minutes = parseInt(seconds_left / 60);
-    printTime("minutes", minutes);
-
-    seconds = parseInt(seconds_left % 60);
-    printTime("seconds", seconds);
+    if (current_date < startDate){
+      printCountDown(current_date, startDate);
+    } else if ((current_date > startDate) && (current_date < endDate)) {
+      printMessage("Nephtime is right now you sillypants.");
+    } else if (current_date > endDate){
+      printMessage("Nephtime is over :'(");
+    }
 
 }, 1000);
+
+
+
+function printMessage(message){
+  var element = document.getElementById("message");
+  element.innerHTML = message;
+}
+
+
+
+function printCountDown(currentDate, targetDate){
+  //make some variables
+  var days, hours, minutes, seconds;
+  var seconds_left = (targetDate - currentDate) / 1000;
+
+  // do some time calculations
+  days = parseInt(seconds_left / 86400);
+  seconds_left = seconds_left % 86400;
+
+  printTime("days", days);
+
+  hours = parseInt(seconds_left / 3600);
+  seconds_left = seconds_left % 3600;
+  printTime("hours", hours);
+
+  minutes = parseInt(seconds_left / 60);
+  printTime("minutes", minutes);
+
+  seconds = parseInt(seconds_left % 60);
+  printTime("seconds", seconds);
+}
+
+
 
 function printTime(name, value){
   var element = document.getElementById(name);

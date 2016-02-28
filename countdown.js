@@ -1,6 +1,6 @@
 //set the dates we'll use and store them as unix timestamps
-var startDate = new Date("Jan 29, 2016 19:10").getTime();
-var endDate = new Date("Feb 7, 2016 09:30").getTime();
+var startDate = new Date("Mar 29, 2016 14:20").getTime();
+var endDate = new Date("Apr 2, 2016 20:00").getTime();
 
 // update every second
 setInterval(function () {
